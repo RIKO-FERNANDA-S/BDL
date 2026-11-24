@@ -1,0 +1,398 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   FIGMA CARD FAN & FLIPCARD SYSTEM
+   Glitch-free 3D Flip System with exact fan angles:
+   - Left Card: Jingxiang (02, -11deg)
+   - Center Card: Minwook (01, 0deg elevated front)
+   - Right Card: Yeojun (03, +11deg)
+   - Front Face: Real member photo with clear contrast
+   - Back Face: User uploaded aurora gradient card asset
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.figma-fan-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  user-select: none;
+}
+
+/* Halftone Dot Matrix Background from Figma */
+.figma-fan-dot-bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 760px;
+  height: 560px;
+  max-width: 100%;
+  background-image: url('../assets/figma/dot-matrix-bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.72;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 3D Stage */
+.figma-fan-stage {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+  z-index: 1;
+}
+
+/* Individual Card Containers (Mengatur posisi fan statis) */
+.figma-flipcard-item {
+  position: absolute;
+  cursor: pointer;
+  perspective: 1400px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.2s ease;
+  will-change: transform;
+}
+
+/* Left Card: JINGXIANG (CYE-02) */
+.figma-flipcard-item.card-left {
+  width: 215px;
+  height: 330px;
+  z-index: 2;
+  transform: translate(-120px, 14px) rotate(-11deg);
+}
+
+.figma-flipcard-item.card-left:hover {
+  transform: translate(-120px, -6px) rotate(-11deg) scale(1.04);
+  z-index: 12;
+}
+
+.figma-flipcard-item.card-left.is-flipped {
+  /* Parent TETAP di rotasi fan -11deg, z-index naik saat dibalik */
+  transform: translate(-120px, 14px) rotate(-11deg);
+  z-index: 15;
+}
+
+/* Center Card: MINWOOK (CYE-01) - Elevated Front */
+.figma-flipcard-item.card-center {
+  width: 226px;
+  height: 346px;
+  z-index: 5;
+  transform: translate(0px, -8px) rotate(0deg);
+}
+
+.figma-flipcard-item.card-center:hover {
+  transform: translate(0px, -22px) rotate(0deg) scale(1.05);
+  z-index: 20;
+}
+
+.figma-flipcard-item.card-center.is-flipped {
+  /* Parent TETAP di posisi 0deg tengah */
+  transform: translate(0px, -8px) rotate(0deg);
+  z-index: 25;
+}
+
+/* Right Card: YEOJUN (CYE-03) */
+.figma-flipcard-item.card-right {
+  width: 215px;
+  height: 330px;
+  z-index: 3;
+  transform: translate(120px, 18px) rotate(11deg);
+}
+
+.figma-flipcard-item.card-right:hover {
+  transform: translate(120px, -2px) rotate(11deg) scale(1.04);
+  z-index: 12;
+}
+
+.figma-flipcard-item.card-right.is-flipped {
+  /* Parent TETAP di rotasi fan +11deg */
+  transform: translate(120px, 18px) rotate(11deg);
+  z-index: 15;
+}
+
+/* Inner 3D Flip Shell - SATU-SATUNYA YANG MELAKUKAN ROTASI 180 DEGREE */
+.figma-flipcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 16px 40px rgba(18, 14, 40, 0.65);
+}
+
+.figma-flipcard-item.is-flipped .figma-flipcard-inner {
+  transform: rotateY(180deg);
+}
+
+/* Smooth 3D Flip face visibility handled by backface-visibility */
+.figma-flipcard-inner {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* Shared Card Face */
+.figma-card-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ── FRONT FACE (Foto Member CYE) ── */
+.figma-card-front {
+  background: #14111c;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  transform: rotateY(0deg) translateZ(1px);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-center .figma-card-front {
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 48px rgba(14, 10, 36, 0.75);
+}
+
+/* Foto member full-bleed */
+.figma-fan-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  z-index: 1;
+}
+
+/* Gradient overlay halus agar nama member terbaca jelas */
+.figma-fan-card-gradient {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 16, 45, 0.05) 0%,
+    rgba(20, 16, 45, 0.2) 45%,
+    rgba(10, 8, 26, 0.8) 78%,
+    rgba(8, 6, 20, 0.95) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Shimmer hologram overlay */
+.figma-card-hologram {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 198, 227, 0.15) 25%,
+    rgba(125, 200, 255, 0.15) 50%,
+    transparent 80%
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.65;
+  z-index: 3;
+}
+
+/* Card Header: Nomor & Bintang */
+.figma-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 5;
+}
+
+.figma-card-num {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.figma-card-sparkle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.85));
+}
+
+.figma-card-sparkle svg {
+  width: 18px;
+  height: 18px;
+  fill: #ffffff;
+}
+
+/* Card Footer: Nama Member & Grup */
+.figma-card-footer {
+  position: relative;
+  z-index: 5;
+  margin-top: auto;
+  text-align: left;
+}
+
+.figma-card-name {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 900;
+  font-size: 21px;
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  letter-spacing: -0.02em;
+}
+
+.card-center .figma-card-name {
+  font-size: 23px;
+}
+
+.figma-card-group {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #7dc8ff;
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* ── BACK FACE (Asset Gambar yang Dikirim User) ── */
+.figma-card-back {
+  background-color: #14111c;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  transform: rotateY(180deg) translateZ(1px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(125, 200, 255, 0.35);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-center .figma-card-back {
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 24px 50px rgba(14, 10, 36, 0.8), 0 0 30px rgba(125, 200, 255, 0.45);
+}
+
+.figma-card-back-asset-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  z-index: 1;
+}
+
+.figma-card-back-hologram {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(125, 200, 255, 0.15) 30%,
+    rgba(255, 198, 227, 0.15) 60%,
+    transparent 85%
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+/* Hint Text: Diletakkan di bawah panggung kartu, tidak pernah menabrak kartu */
+.figma-fan-hint-text {
+  margin-top: 32px;
+  font-family: 'Figtree', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(220, 226, 245, 0.75);
+  letter-spacing: 0.03em;
+  pointer-events: none;
+  z-index: 2;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.figma-fan-hint-text::before,
+.figma-fan-hint-text::after {
+  content: '✦';
+  font-size: 10px;
+  opacity: 0.7;
+  color: #7dc8ff;
+}
+
+/* Responsif Mobile & Tablet */
+@media (max-width: 640px) {
+  .figma-fan-wrapper {
+    height: 380px;
+  }
+
+  .figma-fan-stage {
+    height: 320px;
+  }
+
+  .figma-flipcard-item.card-left {
+    width: 160px;
+    height: 250px;
+    transform: translate(-80px, 12px) rotate(-11deg);
+  }
+
+  .figma-flipcard-item.card-left.is-flipped {
+    transform: translate(-80px, 12px) rotate(-11deg);
+  }
+
+  .figma-flipcard-item.card-center {
+    width: 170px;
+    height: 265px;
+    transform: translate(0px, -6px) rotate(0deg);
+  }
+
+  .figma-flipcard-item.card-center.is-flipped {
+    transform: translate(0px, -6px) rotate(0deg);
+  }
+
+  .figma-flipcard-item.card-right {
+    width: 160px;
+    height: 250px;
+    transform: translate(80px, 15px) rotate(11deg);
+  }
+
+  .figma-flipcard-item.card-right.is-flipped {
+    transform: translate(80px, 15px) rotate(11deg);
+  }
+
+  .figma-card-name {
+    font-size: 16px;
+  }
+
+  .card-center .figma-card-name {
+    font-size: 17px;
+  }
+
+  .figma-card-num {
+    font-size: 11px;
+  }
+}

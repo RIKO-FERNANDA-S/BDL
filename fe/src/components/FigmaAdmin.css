@@ -1,0 +1,1350 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   FIGMA ADMIN DASHBOARD STYLES
+   Clean, Focused, High-Craft Neutral Dark Theme (Anti-Slop Standard)
+   Zero artificial glows, zero cosmic purple orbs, zero decorative clutter
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Base Page */
+.figma-admin-page {
+  min-height: 100vh;
+  background-color: #0d0f14;
+  color: #f3f4f6;
+  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding-bottom: 60px;
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TOP HEADER
+   ───────────────────────────────────────────────────────────── */
+.figma-admin-header {
+  height: 58px;
+  background: #11131a;
+  border-bottom: 1px solid #222634;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.figma-admin-header-inner {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.figma-admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.figma-admin-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.figma-admin-logo .logo-brand {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.figma-admin-logo .logo-panel-tag {
+  font-size: 11px;
+  font-weight: 700;
+  background: #1e2433;
+  color: #60a5fa;
+  border: 1px solid #2d3a52;
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.figma-admin-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.figma-admin-btn-back {
+  background: #161922;
+  border: 1px solid #272c3d;
+  color: #d1d5db;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.figma-admin-btn-back:hover {
+  background: #202431;
+  border-color: #383f56;
+  color: #ffffff;
+}
+
+.btn-text-full {
+  display: inline;
+}
+
+.btn-text-short {
+  display: none;
+}
+
+.figma-admin-btn-logout {
+  background: #1c1417;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.figma-admin-btn-logout:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #ffffff;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CONTAINER & SUMMARY INTRO
+   ───────────────────────────────────────────────────────────── */
+.figma-admin-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  box-sizing: border-box;
+}
+
+.figma-admin-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #222634;
+}
+
+.summary-text-block {
+  max-width: 720px;
+}
+
+.figma-admin-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.figma-admin-subtitle {
+  font-size: 13.5px;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.figma-admin-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-pill {
+  background: #161822;
+  border: 1px solid #272b3b;
+  border-radius: 6px;
+  padding: 6px 14px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.stat-pill .stat-val {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: #60a5fa;
+}
+
+.stat-pill .stat-label {
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   GRID & PANELS
+   ───────────────────────────────────────────────────────────── */
+.figma-admin-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  .figma-admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.figma-admin-forms-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.figma-admin-panel {
+  background: #141720;
+  border: 1px solid #222634;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.panel-header-actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.panel-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.panel-desc {
+  font-size: 12.5px;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FORM CONTROLS
+   ───────────────────────────────────────────────────────────── */
+.figma-admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.form-group input,
+.form-group select {
+  background: #0d0f14;
+  border: 1px solid #272b3b;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 0.15s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Status Selector */
+.status-selector-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.status-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #272b3b;
+  background: #0d0f14;
+  color: #9ca3af;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.status-option input {
+  display: none;
+}
+
+.status-option.is-selected.is-ready {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: #10b981;
+  color: #34d399;
+}
+
+.status-option.is-selected.is-po {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: #3b82f6;
+  color: #60a5fa;
+}
+
+.status-helper-text {
+  font-size: 11.5px;
+  color: #6b7280;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+.photo-input-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.photo-file-input {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.photo-preview-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  background: #0d0f14;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px dashed #2d3448;
+}
+
+.photo-preview-box img {
+  width: 44px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #222634;
+}
+
+.photo-preview-box span {
+  font-size: 12px;
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+.figma-admin-submit-btn {
+  background: #2563eb;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.15s ease;
+}
+
+.figma-admin-submit-btn:hover {
+  background: #1d4ed8;
+}
+
+.figma-admin-reset-btn {
+  background: #1a1e2a;
+  color: #94a3b8;
+  border: 1px solid #2b3244;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.figma-admin-reset-btn:hover {
+  background: #232838;
+  color: #ffffff;
+}
+
+/* Group chips in form */
+.current-groups-list {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #222634;
+}
+
+.current-groups-title {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.group-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.group-chip-item {
+  background: #0d0f14;
+  border: 1px solid #272b3b;
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.group-chip-item .chip-name {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.chip-del-btn {
+  background: none;
+  border: none;
+  color: #f87171;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+}
+
+.chip-del-btn:hover {
+  color: #ef4444;
+}
+
+.chip-badge-default {
+  background: #1e2433;
+  color: #60a5fa;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PHOTOCARD LIST & REORDERING
+   ───────────────────────────────────────────────────────────── */
+.admin-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 850px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.admin-card-row {
+  background: #141720;
+  border: 1px solid #222634;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  box-sizing: border-box;
+}
+
+.admin-card-row:hover {
+  border-color: #2e3549;
+  background: #171b26;
+}
+
+.admin-card-row.is-dragging {
+  opacity: 0.45;
+  border: 1px dashed #3b82f6;
+  background: #11141d;
+}
+
+.admin-card-row.is-drag-over {
+  border: 1px dashed #10b981;
+  background: #121921;
+}
+
+/* Reorder Column */
+.admin-reorder-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding-right: 2px;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.admin-drag-handle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: #64748b;
+  cursor: grab;
+  padding: 2px;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.admin-drag-handle:hover {
+  color: #93c5fd;
+}
+
+.admin-drag-handle:active {
+  cursor: grabbing;
+}
+
+.reorder-badge-pos {
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  background: #0d0f14;
+  border: 1px solid #222634;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.admin-reorder-steppers {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-step-btn {
+  background: #0d0f14;
+  border: 1px solid #272b3b;
+  color: #9ca3af;
+  width: 22px;
+  height: 18px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.admin-step-btn:hover:not(:disabled) {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.admin-step-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* Thumbnail */
+.admin-card-thumb {
+  width: 50px;
+  height: 70px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #1a1e2b;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #272b3b;
+}
+
+.admin-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-card-placeholder {
+  font-weight: 700;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Card Info */
+.admin-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+  flex-wrap: wrap;
+}
+
+.admin-card-title .name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.admin-card-title .group-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #60a5fa;
+  background: #162033;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid #25334e;
+}
+
+.admin-status-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.admin-status-badge.is-ready {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.admin-status-badge.is-po {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.admin-card-edition {
+  font-size: 12.5px;
+  color: #9ca3af;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.admin-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.admin-card-meta .price-tag {
+  color: #ffffff;
+}
+
+.admin-card-meta .price-tag strong {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.admin-card-meta .slot-tag {
+  color: #34d399;
+  font-weight: 600;
+}
+
+.admin-card-meta .slot-tag strong {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.admin-card-meta .dot {
+  color: #374151;
+}
+
+/* Actions in Card */
+.admin-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.admin-edit-btn {
+  background: #171d2b;
+  border: 1px solid #2a354c;
+  color: #60a5fa;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s ease;
+}
+
+.admin-edit-btn:hover {
+  background: #1e283b;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+.admin-delete-btn {
+  background: #1c1417;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.admin-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #ffffff;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MODAL EDIT PHOTOCARD
+   ───────────────────────────────────────────────────────────── */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.admin-edit-modal {
+  background: #141720;
+  border: 1px solid #282d3e;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.admin-edit-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #222634;
+}
+
+.admin-modal-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #60a5fa;
+  background: #162033;
+  border: 1px solid #25334e;
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.admin-modal-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.admin-modal-close {
+  background: #1c202d;
+  border: 1px solid #272b3b;
+  color: #9ca3af;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.admin-modal-close:hover {
+  background: #2a181c;
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.admin-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edit-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edit-form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.edit-status-toggle-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.edit-status-btn {
+  background: #0d0f14;
+  border: 1px solid #272b3b;
+  color: #9ca3af;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.edit-status-btn.is-active.is-ready {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: #10b981;
+  color: #34d399;
+}
+
+.edit-status-btn.is-active.is-po {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: #3b82f6;
+  color: #60a5fa;
+}
+
+.edit-status-desc {
+  font-size: 11.5px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.edit-slot-stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slot-stepper-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background: #161a26;
+  border: 1px solid #282f42;
+  color: #d1d5db;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.slot-stepper-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.slot-stepper-input {
+  flex: 1;
+  height: 38px;
+  border-radius: 6px;
+  border: 1px solid #272b3b;
+  background: #0d0f14;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+}
+
+.slot-stepper-input:focus {
+  border-color: #3b82f6;
+}
+
+.edit-slot-shortcuts {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.shortcuts-label {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.slot-pill-btn {
+  background: #0d0f14;
+  border: 1px solid #272b3b;
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.slot-pill-btn:hover {
+  background: #1c2233;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+.edit-form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.edit-text-input {
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #272b3b;
+  background: #0d0f14;
+  color: #ffffff;
+  padding: 0 10px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.edit-text-input:focus {
+  border-color: #3b82f6;
+}
+
+.admin-edit-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.edit-btn-cancel {
+  flex: 1;
+  height: 38px;
+  border-radius: 6px;
+  background: #161922;
+  border: 1px solid #272c3d;
+  color: #d1d5db;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.edit-btn-cancel:hover {
+  background: #202431;
+  color: #ffffff;
+}
+
+.edit-btn-save {
+  flex: 1.4;
+  height: 38px;
+  border-radius: 6px;
+  background: #2563eb;
+  border: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.edit-btn-save:hover {
+  background: #1d4ed8;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   GATE SCREEN (UNAUTHENTICATED)
+   ───────────────────────────────────────────────────────────── */
+.admin-gate-card {
+  max-width: 440px;
+  width: 100%;
+  background: #141720;
+  border: 1px solid #222634;
+  border-radius: 8px;
+  padding: 32px 28px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.admin-gate-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #1a2030;
+  border: 1px solid #2b364e;
+  color: #60a5fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.admin-gate-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.admin-gate-desc {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0 0 18px 0;
+  line-height: 1.5;
+}
+
+.admin-gate-credentials {
+  background: #0d0f14;
+  border: 1px solid #222634;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.cred-label {
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.cred-val {
+  font-family: monospace;
+  font-size: 13px;
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.admin-gate-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.figma-admin-btn-secondary {
+  flex: 1;
+  height: 38px;
+  background: #161922;
+  border: 1px solid #272c3d;
+  color: #d1d5db;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.figma-admin-btn-secondary:hover {
+  background: #202431;
+  color: #ffffff;
+}
+
+.figma-admin-btn-primary {
+  flex: 1.4;
+  height: 38px;
+  background: #2563eb;
+  border: none;
+  color: #ffffff;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.figma-admin-btn-primary:hover {
+  background: #1d4ed8;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MOBILE RESPONSIVENESS (< 768px)
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .figma-admin-header {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .figma-admin-header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0 16px;
+  }
+
+  .figma-admin-brand {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .figma-admin-logo .logo-brand {
+    font-size: 16px;
+  }
+
+  .figma-admin-nav-actions {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .figma-admin-nav-actions > * {
+    flex: 1;
+  }
+
+  .figma-admin-btn-back,
+  .figma-admin-btn-logout {
+    width: 100%;
+    height: 36px;
+    padding: 0 8px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .btn-text-full {
+    display: none;
+  }
+
+  .btn-text-short {
+    display: inline;
+  }
+
+  .figma-admin-container {
+    padding: 16px 14px;
+  }
+
+  .figma-admin-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+  }
+
+  .figma-admin-title {
+    font-size: 18px;
+  }
+
+  .figma-admin-stats {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stat-pill {
+    justify-content: center;
+    padding: 6px 10px;
+  }
+
+  .figma-admin-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .figma-admin-panel {
+    padding: 16px 14px;
+  }
+
+  .panel-header-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .figma-admin-reset-btn {
+    width: 100%;
+    text-align: center;
+    padding: 8px 12px;
+  }
+
+  /* Photocard row grid on mobile */
+  .admin-cards-list {
+    max-height: none;
+    padding-right: 0;
+    gap: 10px;
+  }
+
+  .admin-card-row {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    grid-template-areas:
+      "reorder thumb info"
+      "actions actions actions";
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .admin-reorder-col {
+    grid-area: reorder;
+  }
+
+  .admin-card-thumb {
+    grid-area: thumb;
+    width: 46px;
+    height: 64px;
+  }
+
+  .admin-card-info {
+    grid-area: info;
+    min-width: 0;
+  }
+
+  .admin-card-title .name {
+    font-size: 13.5px;
+  }
+
+  .admin-card-meta {
+    font-size: 12px;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+
+  .admin-card-actions {
+    grid-area: actions;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    margin-top: 4px;
+    padding-top: 10px;
+    border-top: 1px solid #222634;
+  }
+
+  .admin-edit-btn,
+  .admin-delete-btn {
+    width: 100%;
+    height: 36px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  /* Modal on Mobile */
+  .admin-modal-overlay {
+    padding: 12px;
+  }
+
+  .admin-edit-modal {
+    padding: 18px 14px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .edit-status-toggle-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .edit-form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .admin-edit-modal-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .edit-btn-cancel,
+  .edit-btn-save {
+    width: 100%;
+    height: 38px;
+  }
+}
+
+/* Extra small mobile (< 480px) */
+@media (max-width: 480px) {
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .status-selector-row {
+    grid-template-columns: 1fr;
+  }
+}
